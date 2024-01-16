@@ -40,13 +40,13 @@ export default function HomePage() {
 
     return (
       <>
-      <div className="w-full h-full flex flex-col justify-end  bg-gradient-to-b from-slate-800  to-slate-600">
+      <div className="w-full h-screen flex flex-col justify-end  bg-gradient-to-b from-slate-800  to-slate-600">
         {/* I sezione */}
         <div className='flex overflow-x-auto flex-nowrap'>
           {dati.map((book)=>{
             return(book.volumeInfo.imageLinks ? 
               <div key={book.id} className='min-w-36 max-h-[200px] m-5 relative' >
-                <img className='w-full h-full' src={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail:''} alt="immagine copertina" />
+                <img className='w-full h-full' src={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail:''} alt="immagine copertina" />
                 <div className='absolute inset-x-0 inset-y-0 hidden hover:block'>
                   <div className='text-white'>Titolo: {book.volumeInfo.title}</div>
                   <div className='text-white'>Autore: {book.volumeInfo.authors}</div>
@@ -60,7 +60,7 @@ export default function HomePage() {
           {datiDue.map((book)=>{
             return(book.volumeInfo.imageLinks ? 
               <div key={book.id} className='min-w-36 max-h-[200px] m-5 relative' >
-                <img className='w-full h-full' src={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail:''} alt="immagine copertina" />
+                <img className='w-full h-full' src={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail:''} alt="immagine copertina" />
                 <div className='absolute inset-x-0 inset-y-0 hidden hover:block'>
                   <div className='text-white'>Titolo: {book.volumeInfo.title}</div>
                   <div className='text-white'>Autore: {book.volumeInfo.authors}</div>
