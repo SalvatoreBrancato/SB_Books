@@ -7,7 +7,7 @@ export default function BooksPage(){
     const [formData, setFormData] = useState({
       name: '',
       surname:'',
-      author: ''
+      title: ''
   })
 
   const [research, setResearch] = useState([])
@@ -27,7 +27,7 @@ export default function BooksPage(){
     const newResearch = {
         name: formData.name,
         surname: formData.surname,
-        author: formData.author
+        title: formData.title
     }
 
     setResearch([...research, newResearch])
@@ -54,21 +54,21 @@ export default function BooksPage(){
     return (
       <>
         <div className="w-full min-h-screen flex-col items-center bg-gradient-to-b from-slate-800  to-slate-600">
-          <form className='flex items-center h-1/3 ' onSubmit={handleSubmit}>
+          <form className='flex items-center justify-center h-1/3 my-5 ' onSubmit={handleSubmit}>
             <div className='m-5'>
               <label htmlFor="title" className='text-white'>Titolo: </label>
-              <input name="title" type="text" value={formData.title} onChange={handleInputChange} />
+              <input className='rounded-md' name="title" type="text" value={formData.title} onChange={handleInputChange} />
             </div>
             <div className='m-5'>
               <label htmlFor="name" className='text-white'>Nome autore: </label>
-              <input name="name" type="text" value={formData.name} onChange={handleInputChange}/>
+              <input className='rounded-md' name="name" type="text" value={formData.name} onChange={handleInputChange}/>
             </div>
             <div className='m-5'>
               <label htmlFor="surname" className='text-white'>Cognome autore: </label>
-              <input name="surname" type="text" value={formData.surname} onChange={handleInputChange}/>
+              <input className='rounded-md' name="surname" type="text" value={formData.surname} onChange={handleInputChange}/>
             </div>
             <div>
-              <button className="p-1 bg-red-500 rounded-md m-5 text-white" type="submit">Ricerca</button>
+              <button className="px-2 bg-red-500 rounded-md m-5 text-white font-bold" type="submit">Ricerca</button>
             </div>
           </form>
           <div className='min-h-full'>
@@ -79,6 +79,8 @@ export default function BooksPage(){
                   <div className='flex flex-col'>
                     <div className='text-white'>Titolo: {book.volumeInfo.title}</div>
                     <div className='text-white'>Autore: {book.volumeInfo.authors}</div>
+                    <div className='text-white'>Data pubblicazione: {book.volumeInfo.publishedDate}</div>
+
                   </div>
                                 
                 </div> : ''
