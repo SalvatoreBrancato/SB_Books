@@ -34,8 +34,8 @@ export default function BooksPage(){
     setResearch([...research, newResearch])
     console.log(newResearch)
     
-    const url = `https://www.googleapis.com/books/v1/volumes?q=inauthor:${newResearch.name}+${newResearch.surname}&intitle:${newResearch.title}&orderBy=newest&maxResults=30`
-      axios.get(`https://www.googleapis.com/books/v1/volumes?q=inauthor:${newResearch.name}+${newResearch.surname}&intitle:${newResearch.title}&orderBy=newest&maxResults=40`)
+    const url = `https://www.googleapis.com/books/v1/volumes?q=inauthor:${newResearch.name}+${newResearch.surname}&intitle:${newResearch.title}&orderBy=newest&maxResults=30&langRestrict=it`
+      axios.get(`https://www.googleapis.com/books/v1/volumes?q=inauthor:${newResearch.name}+${newResearch.surname}&intitle:${newResearch.title}&orderBy=newest&maxResults=40&langRestrict=it`)
         .then(response => {
           // Analizza la risposta
           setDati(response.data.items);
@@ -75,16 +75,16 @@ export default function BooksPage(){
           <div className='min-h-full'>
             {dati.map((book)=>{
               return(book.volumeInfo.imageLinks ? 
-                <div key={book.id} className='max-h-[200px] m-5 relative flex'>
                   <Link to={`/book/${book.id}`}>
-                    <img className='' src={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail:''} alt="immagine copertina" />
-                    <div className='flex flex-col'>
-                      <div className='text-white'>Titolo: {book.volumeInfo.title}</div>
-                      <div className='text-white'>Autore: {book.volumeInfo.authors}</div>
-                      <div className='text-white'>Data pubblicazione: {book.volumeInfo.publishedDate}</div>
-                    </div>
-                  </Link>                                
-                </div> : ''
+                    <div key={book.id} className='max-h-[200px] m-5 relative flex'>
+                        <img className='' src={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail:''} alt="immagine copertina" />
+                        <div className='flex flex-col'>
+                          <div className='text-white'>Titolo: {book.volumeInfo.title}</div>
+                          <div className='text-white'>Autore: {book.volumeInfo.authors}</div>
+                          <div className='text-white'>Data pubblicazione: {book.volumeInfo.publishedDate}</div>
+                        </div>
+                    </div> 
+                  </Link>: ''                                
               )
             })}
           </div>
