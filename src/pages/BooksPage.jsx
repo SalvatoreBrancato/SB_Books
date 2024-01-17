@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
+import {Link} from "react-router-dom";
 
 export default function BooksPage(){
     const [dati, setDati] = useState([])
@@ -75,14 +76,14 @@ export default function BooksPage(){
             {dati.map((book)=>{
               return(book.volumeInfo.imageLinks ? 
                 <div key={book.id} className='max-h-[200px] m-5 relative flex'>
-                  <img className='' src={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail:''} alt="immagine copertina" />
-                  <div className='flex flex-col'>
-                    <div className='text-white'>Titolo: {book.volumeInfo.title}</div>
-                    <div className='text-white'>Autore: {book.volumeInfo.authors}</div>
-                    <div className='text-white'>Data pubblicazione: {book.volumeInfo.publishedDate}</div>
-
-                  </div>
-                                
+                  <Link to={`/book/${book.id}`}>
+                    <img className='' src={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail:''} alt="immagine copertina" />
+                    <div className='flex flex-col'>
+                      <div className='text-white'>Titolo: {book.volumeInfo.title}</div>
+                      <div className='text-white'>Autore: {book.volumeInfo.authors}</div>
+                      <div className='text-white'>Data pubblicazione: {book.volumeInfo.publishedDate}</div>
+                    </div>
+                  </Link>                                
                 </div> : ''
               )
             })}
