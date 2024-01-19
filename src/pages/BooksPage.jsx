@@ -78,7 +78,7 @@ export default function BooksPage(){
                   <Link to={`/book/${book.id}`}>
                     <div key={book.id} className='max-h-[200px] m-5 relative flex'>
                         <img className='' src={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail:''} alt="immagine copertina" />
-                        <div className='flex flex-col'>
+                        <div className='flex flex-col ml-5'>
                           <div className='text-white'>Titolo: {book.volumeInfo.title}</div>
                           <div className='text-white'>Autore: {book.volumeInfo.authors}</div>
                           <div className='text-white'>Data pubblicazione: {book.volumeInfo.publishedDate}</div>

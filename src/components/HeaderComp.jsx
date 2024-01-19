@@ -8,7 +8,8 @@ export default function HeaderComp(){
             </div>
             <div className="flex justify-end w-50 text-white text-xl">
                 <Link to="/" className="border-l-4 border-red-600 px-1" >Home</Link>
-                <Link className="border-l-4 border-red-600 px-1 mx-2" to='/books'>Books</Link>
+                <Link className="border-l-4 border-red-600 px-1 mx-2" to='/books'>Cerca</Link>
+                <Link className="border-l-4 border-red-600 px-1 mx-2" to='/mybooks'>I miei libri</Link>
             </div>
         </header>
     )

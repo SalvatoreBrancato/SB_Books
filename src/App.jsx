@@ -4,6 +4,8 @@ import DefaultLayout from './pages/DefaultLayout';
 import HomePage from './pages/HomePage';
 import BooksPage from './pages/BooksPage';
 import ShowBookPage from './pages/ShowBookPage';
+import MyBookPage from './pages/MyBookPage';
+
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
             <Route path='/' element={<HomePage/>}></Route>
             <Route path='/books' element={<BooksPage/>}></Route>
             <Route path='/book/:id' element={<ShowBookPage/>}></Route>
+            <Route path='/mybooks' element={<MyBookPage/>}></Route>
           </Route>
         </Routes>
       </BrowserRouter>
